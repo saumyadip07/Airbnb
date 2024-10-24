@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<%- include("layout/head.ejs")  %>
+<body>
+	<div id="fh5co-wrapper">
+	<div id="fh5co-page">
+	<div id="fh5co-header">
+		<%-include("layout/header.ejs",{authenticated,userName,userImage})%>	
+		
+	</div>
+	<!-- end:fh5co-header -->
+	<div class="fh5co-parallax" style="background-image: url(images/slider1.jpg);" data-stellar-background-ratio="0.5">
+		<div class="overlay"></div>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12 col-md-offset-0 col-sm-12 col-sm-offset-0 col-xs-12 col-xs-offset-0 text-center fh5co-table">
+					<div class="fh5co-intro fh5co-table-cell">
+						<h1 class="text-center">Read Our Blog</h1>
+						<p>Made with love by the fine folks at <a href="http://freehtml5.co">MYBNB</a></p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<div id="fh5co-blog-section">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-4">
+					<div class="blog-grid" style="background-image: url(../../images/blog1.jpg);">
+						<div class="date text-center">
+							<span>09</span>
+							<small>Aug</small>
+						</div>
+					</div>
+					<div class="desc">
+						<h3><a href="www/blog1">Top 5 Unique Stays Around the World</a></h3>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="blog-grid" style="background-image: url(../../images/blogTWO.jpg);">
+						<div class="date text-center">
+							<span>09</span>
+							<small>Aug</small>
+						</div>
+					</div>
+					<div class="desc">
+						<h3><a href="www/blog2">How to Find the Perfect Vacation Rental</a></h3>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="blog-grid" style="background-image: url(../../images/blog3.jpg);">
+						<div class="date text-center">
+							<span>09</span>
+							<small>Aug</small>
+						</div>
+					</div>
+					<div class="desc">
+						<h3><a href="www/blog3">The Benefits, Booking Directly with Hosts</a></h3>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="blog-grid" style="background-image: url(../../images/blog4.jpg);">
+						<div class="date text-center">
+							<span>09</span>
+							<small>Aug</small>
+						</div>
+					</div>
+					<div class="desc">
+						<h3><a href="www/blog4">Family-Friendly Vacation Rentals: Top Picks for Your Next Family Trip</a></h3>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="blog-grid" style="background-image: url(../../images/blog5.jpg);">
+						<div class="date text-center">
+							<span>09</span>
+							<small>Aug</small>
+						</div>
+					</div>
+					<div class="desc">
+						<h3><a href="www/blog5">The Rise of Sustainable Travel: Eco-Friendly Rentals You Can Book</a></h3>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="blog-grid" style="background-image: url(../../images/blog6.jpg);">
+						<div class="date text-center">
+							<span>09</span>
+							<small>Aug</small>
+						</div>
+					</div>
+					<div class="desc">
+						<h3><a href="www/blog6">A Guide to Hosting: How to Become an Airbnb Superhost</a></h3>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<%- include("layout/footer.ejs")  %>
+
+</body>
+</html>

@@ -1,0 +1,81 @@
+
+<head>     
+<style>
+    /* Profile Image Styling */
+.profile-img {
+    width: 40px;          /* Adjust the width as per your preference */
+    height: 40px;         /* Keep the height the same to maintain a square */
+    border-radius: 50%;   /* This makes the image a circle */
+    object-fit: cover;    /* Ensures the image scales well inside the circle */
+    margin-left: 10px;    /* Add spacing from the other elements if needed */
+    border: 2px solid #fff; /* Optional: Add a border around the image */
+    box-shadow: 0px 0px 5px rgba(0,0,0,0.2); /* Optional: Add a slight shadow */
+}
+
+.dropdown-menu {
+    min-width: 150px;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.dropdown-header {
+    font-weight: bold;
+    color: #333;
+    padding: 5px 15px;
+}
+
+.dropdown-item {
+    padding: 8px 15px;
+    color: #333;
+}
+
+.dropdown-item:hover {
+    background-color: #07131f !important;
+    color: #f2f2f7d8 !important;
+}
+</style>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+    
+
+
+<header id="fh5co-header-section">
+    <div class="container">
+        <div class="nav-header">
+            <a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle"><i></i></a>
+            <h1 id="fh5co-logo"><a href="/">MyBnb</a></h1>
+            <nav id="fh5co-menu-wrap" role="navigation">
+                <ul class="sf-menu" id="fh5co-primary-menu">
+                    <% if (!authenticated) { %>
+                        <li><a class="fh5co-sub-ddown" href="/www/vendor/signup/form">Join As a Vendor</a></li>
+                        <li><a class="fh5co-sub-ddown" href="/user/login/form">Login</a></li>
+                    <% } else { %>
+                        
+                        <li><a class="fh5co-sub-ddown" href="/">Home</a></li>
+                        <li><a href="/hotel" class="fh5co-sub-ddown">Hotel</a></li>
+                        <li><a href="/services">Services</a></li>
+                        <li><a href="/blog">Blog</a></li>
+                        <li><a href="/contact">Contact</a></li>
+                       
+                        <li class="dropdown">
+                            <a class="fh5co-sub-ddown" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                                <img class="profile-img" src="<%= userImage %>" alt="Profile Picture">
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink">
+                                <li class="dropdown-header"><%= userName %></li>
+                              
+                                <li><a class="dropdown-item" href="/user/dashboard">Dashboard</a></li>
+                                
+                                <li><a class="dropdown-item" href="/user/logout">Logout</a></li>
+                            </ul>
+                        </li>
+                    <% } %>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</header>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>

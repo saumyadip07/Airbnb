@@ -1,0 +1,439 @@
+{
+	"info": {
+		"_postman_id": "3f1db56d-8de5-43a0-ad5e-9495eb69fece",
+		"name": "FinalAirbnb",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "30382957"
+	},
+	"item": [
+		{
+			"name": "user signup",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "Saumyadip Dutta",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "saumyadipdutta.07@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "12345",
+							"type": "text"
+						},
+						{
+							"key": "userImage",
+							"type": "file",
+							"src": "/C:/Users/manut/Downloads/Saumya's white shirt.jpg"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:2500/api/user/signup",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "2500",
+					"path": [
+						"api",
+						"user",
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\":\"saumyadipdutta.07@gmail.com\",\r\n    \"password\":\"12345\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:2500/api/user/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "2500",
+					"path": [
+						"api",
+						"user",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "admin signup",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "Debanjan Dutta",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "saumyabackend@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "12345",
+							"type": "text"
+						},
+						{
+							"key": "adminImage",
+							"type": "file",
+							"src": "/C:/Users/manut/Downloads/satyaki's red shirt.jpg"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:2500/api/admin/signup",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "2500",
+					"path": [
+						"api",
+						"admin",
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "admin login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\":\"saumyabackend@gmail.com\",\r\n    \"password\":\"12345\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:2500/api/admin/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "2500",
+					"path": [
+						"api",
+						"admin",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "vendor signup",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "Grand Hotels",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "saumyadipdutta.business@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "12345",
+							"type": "text"
+						},
+						{
+							"key": "vendorImage",
+							"type": "file",
+							"src": "/C:/Users/manut/Downloads/Data Analysis2.jpg"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:2500/api/vendor/signup",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "2500",
+					"path": [
+						"api",
+						"vendor",
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "vendor login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\":\"saumyadipdutta.business@gmail.com\",\r\n    \"password\":\"12345\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:2500/api/vendor/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "2500",
+					"path": [
+						"api",
+						"vendor",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "hotel create",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ2ZW5kb3JJZCI6IjY2ZWMzZDAwODgyNmI1OGUzYzQ3NTUwNyIsImVtYWlsIjoic2F1bXlhZGlwZHV0dGEuYnVzaW5lc3NAZ21haWwuY29tIiwicm9sZSI6InZlbmRvciIsImlhdCI6MTcyNjk5MDk0NiwiZXhwIjoxNzI3MDc3MzQ2fQ.bBNrlSPmv0VUpPeyXqOJDkHI5Ka5GLy30fn6iy9-1yA",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "Grand Hyatt",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "Luxury hotel at your comfort",
+							"type": "text"
+						},
+						{
+							"key": "address",
+							"value": "123C, Newtown main road",
+							"type": "text"
+						},
+						{
+							"key": "city",
+							"value": "kolkata",
+							"type": "text"
+						},
+						{
+							"key": "vendorId",
+							"value": "66ec3d008826b58e3c475507",
+							"type": "text"
+						},
+						{
+							"key": "hotelImage",
+							"type": "file",
+							"src": "/C:/Users/manut/Downloads/grand-hyatt-manila.jpg"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:2500/api/hotel/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "2500",
+					"path": [
+						"api",
+						"hotel",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get all hotel",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:2500/api/hotel",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "2500",
+					"path": [
+						"api",
+						"hotel"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update hotel",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ2ZW5kb3JJZCI6IjY2ZWMzZDAwODgyNmI1OGUzYzQ3NTUwNyIsImVtYWlsIjoic2F1bXlhZGlwZHV0dGEuYnVzaW5lc3NAZ21haWwuY29tIiwicm9sZSI6InZlbmRvciIsImlhdCI6MTcyNjk5MDk0NiwiZXhwIjoxNzI3MDc3MzQ2fQ.bBNrlSPmv0VUpPeyXqOJDkHI5Ka5GLy30fn6iy9-1yA",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "Grand Hyatt",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "Luxury hotel at your comfort",
+							"type": "text"
+						},
+						{
+							"key": "address",
+							"value": "123C, Newtown main road",
+							"type": "text"
+						},
+						{
+							"key": "city",
+							"value": "kolkata",
+							"type": "text"
+						},
+						{
+							"key": "vendorId",
+							"value": "66ec3d008826b58e3c475507",
+							"type": "text"
+						},
+						{
+							"key": "hotelImage",
+							"type": "file",
+							"src": "/C:/Users/manut/Downloads/about2.jpg"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:2500/api/hotel/update/66efde34e15df8b3e351bda7",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "2500",
+					"path": [
+						"api",
+						"hotel",
+						"update",
+						"66efde34e15df8b3e351bda7"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete hotel",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ2ZW5kb3JJZCI6IjY2ZWMzZDAwODgyNmI1OGUzYzQ3NTUwNyIsImVtYWlsIjoic2F1bXlhZGlwZHV0dGEuYnVzaW5lc3NAZ21haWwuY29tIiwicm9sZSI6InZlbmRvciIsImlhdCI6MTcyNjk5MDk0NiwiZXhwIjoxNzI3MDc3MzQ2fQ.bBNrlSPmv0VUpPeyXqOJDkHI5Ka5GLy30fn6iy9-1yA",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:2500/api/hotel/delete/66efde34e15df8b3e351bda7",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "2500",
+					"path": [
+						"api",
+						"hotel",
+						"delete",
+						"66efde34e15df8b3e351bda7"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create booking",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NmYwZGRhODJjZDNmYzhmM2FhN2EzNTQiLCJlbWFpbCI6InByYWRpcGR1dHRhMjQ5OEBnbWFpbC5jb20iLCJyb2xlIjoidXNlciIsImlhdCI6MTcyNzE2NTg3NCwiZXhwIjoxNzI3MjUyMjc0fQ.JEZfNbBdQDvkdfy7Oeh3w-Ch_gnPbIHEalrnnCTZodc",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:2500/api/booking/create/66f0d18954fbd5e94153c23f",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "2500",
+					"path": [
+						"api",
+						"booking",
+						"create",
+						"66f0d18954fbd5e94153c23f"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

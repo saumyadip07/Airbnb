@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html class="no-js">
+<%- include("layout/head.ejs") %>
+<body>
+    <div id="fh5co-wrapper">
+        <div id="fh5co-page">
+            <div id="fh5co-header">
+                <%-include("layout/header.ejs", {authenticated, userName, userImage})%>    
+            </div>
+            <!-- end:fh5co-header -->
+
+            <!-- Parallax Background -->
+            <div class="fh5co-parallax" style="background-image: url(images/slider1.jpg);" data-stellar-background-ratio="0.5">
+                <div class="overlay"></div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12 col-md-offset-0 col-sm-12 col-sm-offset-0 col-xs-12 col-xs-offset-0 text-center fh5co-table">
+                            <div class="fh5co-intro fh5co-table-cell">
+                                <h1 class="text-center">Choose Our Hotel</h1>
+                                <p>Made with love by the fine folks at <a href="http://freehtml5.co">MYBNB</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- City Selector & Hotels Display -->
+            <div class="container mt-5">
+                <h1 class="mb-4">Find Hotels by Location</h1>
+
+                <!-- Dropdown Menu for Location -->
+                <div class="form-group">
+                    <label for="location">Select City</label>
+                    <select id="location" class="form-control">
+                        <option value="">-- Select a City --</option>
+                        <% cities.forEach(function(city) { %>
+                            <option value="<%= city %>"><%= city %></option>
+                        <% }); %>
+                    </select>
+                </div>
+
+                <!-- Display Hotels -->
+                <div id="hotels-container" class="row">
+                    <% hotels.forEach(function(hotel) { %>
+                        <% if(hotel.isApprove) { %>
+                        <div class="col-md-4 hotel-item mb-4" data-location="<%= hotel.city %>">
+                            <div class="hotel-card card">
+                                <div class="hotel-image" style="background-image: url('<%= hotel.hotelImage %>');"></div>
+                                <div class="card-body">
+                                    <h5 class="card-title"><%= hotel.name %></h5>
+                                    <p class="card-text"><%= hotel.description %></p>
+                                    <p class="card-text"><small class="text-muted"><%= hotel.city %></small></p>
+                                </div>
+                                <div class="hotel-info">
+                                    <div class="price">
+                                        <small>For as low as</small>
+                                        <span><%= hotel.price %>/night</span>
+                                    </div>
+                                    <a class="book-now text-center" href="/hotel/booking/details/<%= hotel._id %>"><button class="btn btn-primary">Book Now</button></a>
+                                </div>
+                            </div>
+                        </div>
+                        <% } %>
+                    <% }); %>
+                </div>
+            </div>
+
+            <%- include("layout/footer.ejs") %>
+
+            <script>
+                // Log loaded hotels
+                console.log(`Hotels loaded from backend:, <%= JSON.stringify(hotels) %>`);
+
+                // Get references to the dropdown and hotels container
+                const locationDropdown = document.getElementById('location');
+                const hotelItems = document.querySelectorAll('.hotel-item');
+
+                // Add an event listener to the dropdown menu
+                locationDropdown.addEventListener('change', function() {
+                    const selectedLocation = this.value;
+                    hotelItems.forEach(hotel => {
+                        const hotelLocation = hotel.getAttribute('data-location');
+                        if (selectedLocation === "" || hotelLocation === selectedLocation) {
+                            hotel.style.display = "block";
+                        } else {
+                            hotel.style.display = "none";
+                        }
+                    });
+                });
+            </script>
+        </div>
+    </div>
+
+    <style>
+        /* Ensure consistency in card styles */
+        .hotel-card {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+            position: relative;
+        }
+
+        /* Image as background */
+        .hotel-image {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* Card content styling */
+        .card-body {
+            padding: 15px;
+        }
+
+        /* Book now and price hidden by default */
+        .hotel-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        /* Show price and book button on hover */
+        .hotel-card:hover .hotel-info {
+            opacity: 1;
+        }
+
+        /* Hotel card hover effect */
+        .hotel-card:hover {
+            transform: scale(1.05);
+        }
+
+        /* Price and button styling */
+        .price {
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+
+        .btn-primary {
+            background-color: #ff5a5f;
+            border: none;
+            padding: 10px 20px;
+        }
+
+        .btn-primary:hover {
+            background-color: #ff787f;
+        }
+
+        /* Consistent margins for hotel cards */
+        .hotel-item {
+            margin-bottom: 20px;
+        }
+    </style>
+</body>
+</html>

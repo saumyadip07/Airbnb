@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<head>
+	<style>
+		.alert-container {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            max-width: 500px;
+            z-index: 9999;
+        }
+	</style>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+   
+</head>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<%- include("layout/head.ejs")  %>
+<body>
+	<div id="fh5co-wrapper">
+	<div id="fh5co-page">
+	<div id="fh5co-header">
+<%-include("layout/header.ejs",{authenticated,userName,userImage})%>	
+		
+	</div>
+	<!-- end:fh5co-header -->
+	<div class="alert-container">
+        <% if (success.length > 0) { %>
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <%= success %>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">X</button>
+            </div>
+        <% } %>
+        <% if (error.length > 0) { %>
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <%= error %>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">X</button>
+            </div>
+        <% } %>
+    </div>
+
+	<aside id="fh5co-hero" class="js-fullheight">
+		<div class="flexslider js-fullheight">
+			<ul class="slides">
+				
+	<% if(hotels && hotels.length > 0){%>
+		<% hotels.forEach(hotel=>{ %>
+		   	<li style="background-image: url(<%=hotel.hotelImage%>);">
+		   		<div class="overlay-gradient"></div>
+		   		<div class="container">
+		   			<div class="col-md-12 col-md-offset-0 text-center slider-text">
+		   				<div class="slider-text-inner js-fullheight">
+		   					<div class="desc">
+		   						<p><span><%= hotel.name  %></span></p>
+		   						<h2><%= hotel.description  %></h2>
+			   					<p>
+			   						<a href="/hotel" class="btn btn-primary btn-lg">Book Now</a>
+			   					</p>
+		   					</div>
+		   				</div>
+		   			</div>
+		   		</div>
+		   	</li>
+		<% }) %>
+	<% } %>
+
+		   	
+		  	</ul>
+	  	</div>
+	</aside>
+	<div class="wrap">
+		<div class="container">
+			<div class="row">
+				<div id="availability">
+					<form action="#">
+
+						<div class="a-col">
+						
+						</div>
+					
+				
+						
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div id="fh5co-counter-section" class="fh5co-counters">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-3 text-center mt-3">
+					<span class="fh5co-counter js-counter" data-from="0" data-to="20356" data-speed="5000" data-refresh-interval="50"></span>
+					<span class="fh5co-counter-label">User Access</span>
+				</div>
+				<div class="col-md-3 text-center mt-3">
+					<span class="fh5co-counter js-counter" data-from="0" data-to="15501" data-speed="5000" data-refresh-interval="50"></span>
+					<span class="fh5co-counter-label">Hotels</span>
+				</div>
+				<div class="col-md-3 text-center mt-3">
+					<span class="fh5co-counter js-counter" data-from="0" data-to="8200" data-speed="5000" data-refresh-interval="50"></span>
+					<span class="fh5co-counter-label">Transactions</span>
+				</div>
+				<div class="col-md-3 text-center mt-3">
+					<span class="fh5co-counter js-counter" data-from="0" data-to="8763" data-speed="5000" data-refresh-interval="50"></span>
+					<span class="fh5co-counter-label">Rating &amp; Review</span>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="featured-hotel" class="fh5co-bg-color">
+		<div class="container">
+			
+			<div class="row">
+				<div class="col-md-12">
+					<div class="section-title text-center">
+						<h2>Featured Hotels</h2>
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+			
+				<div class="feature-full-1col">
+					<div class="image" style="background-image: url(<%=hotels[0].hotelImage%>);">
+						<div class="descrip text-center">
+							<p><small>For as low as</small><span><%= hotels[0].price%>/night</span></p>
+						</div>
+					</div>
+					<div class="desc">
+						<h3><%= hotels[0].name%></h3>
+						<p>
+							<%= hotels[0].description%>
+							Pellentesque habitant morbi tristique senectus et netus ett mauada fames ac turpis egestas. Etiam euismod tempor leo, in suscipit urna condimentum sed. Vivamus augue enim, consectetur ac interdum a, pulvinar ac massa. Nullam malesuada congue </p>
+						<p><a href="/hotel/booking/details/<%=hotels[0]._id  %>" class="btn btn-primary btn-luxe-primary">Book Now <i class="ti-angle-right"></i></a></p>
+					</div>
+				</div>
+			
+
+				<div class="feature-full-2col">
+					<div class="f-hotel">
+						<div class="image" style="background-image: url(<%=hotels[1].hotelImage%>);">
+							<div class="descrip text-center">
+								<p><small>For as low as</small><span><%= hotels[1].price%>/night</span></p>
+							</div>
+						</div>
+						<div class="desc">
+							<h3><%= hotels[1].name%></h3>
+							<p><% hotels[1].description%>
+								Pellentesque habitant morbi tristique senectus et netus ett mauada fames ac turpis egestas. Etiam euismod tempor leo, 
+							in suscipit urna condimentum sed. </p>
+							<p><a href="/hotel/booking/details/<%=hotels[1]._id  %>" class="btn btn-primary btn-luxe-primary">Book Now <i class="ti-angle-right"></i></a></p>
+						</div>
+					</div>
+					<div class="f-hotel">
+						<div class="image" style="background-image: url(<%=hotels[2].hotelImage%>);">
+							<div class="descrip text-center">
+								<p><small>For as low as</small><span><%=hotels[2].price%>/night</span></p>
+							</div>
+						</div>
+						<div class="desc">
+							<h3><%=hotels[2].name%></h3>
+							<p><%=hotels[2].description%>
+								Pellentesque habitant morbi tristique senectus et netus ett mauada fames ac turpis egestas. Etiam euismod tempor leo, in suscipit urna condimentum sed. </p>
+							<p><a href="/hotel/booking/details/<%=hotels[2]._id  %>" class="btn btn-primary btn-luxe-primary">Book Now <i class="ti-angle-right"></i></a></p>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+	<div id="hotel-facilities">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="section-title text-center">
+						<h2>Hotel Facilities</h2>
+					</div>
+				</div>
+			</div>
+
+			<div id="tabs">
+				<nav class="tabs-nav">
+					<a href="#" class="active" data-tab="tab1">
+						<i class="flaticon-restaurant icon"></i>
+						<span>Restaurant</span>
+					</a>
+					<a href="#" data-tab="tab2">
+						<i class="flaticon-cup icon"></i>
+						<span>Bar</span>
+					</a>
+					<a href="#" data-tab="tab3">
+					
+						<i class="flaticon-car icon"></i>
+						<span>Pick-up</span>
+					</a>
+					<a href="#" data-tab="tab4">
+						
+						<i class="flaticon-swimming icon"></i>
+						<span>Swimming Pool</span>
+					</a>
+					<a href="#" data-tab="tab5">
+						
+						<i class="flaticon-massage icon"></i>
+						<span>Spa</span>
+					</a>
+					<a href="#" data-tab="tab6">
+						
+						<i class="flaticon-bicycle icon"></i>
+						<span>Gym</span>
+					</a>
+				</nav>
+				<div class="tab-content-container">
+					<div class="tab-content active show" data-tab-content="tab1">
+						<div class="container">
+							<div class="row">
+								<div class="col-md-6">
+									<img src="../../images/resturant.jpg" class="img-responsive" alt="Image">
+								</div>
+								<div class="col-md-6">
+									<span class="super-heading-sm">World Class</span>
+									<h3 class="heading">Restaurant</h3>
+									<p>A restaurant is a place where people come together to enjoy food, ambiance, and hospitality. Whether it’s a cozy bistro, a fine-dining establishment, or a casual eatery, restaurants offer a diverse range of culinary experiences to suit every taste and occasion. From local delicacies to international flavors, each restaurant typically has its own unique menu, crafted by talented chefs who combine fresh ingredients and innovative techniques to create memorable dishes.</p>
+									<p>Beyond food, a restaurant's atmosphere plays a key role in its appeal. Thoughtfully designed interiors, whether modern, rustic, or elegant, create an inviting space where guests can relax and savor their meals.</p>
+									<p class="service-hour">
+										<span>Service Hours</span>
+										<strong>7:30 AM - 8:00 PM</strong>
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="tab-content" data-tab-content="tab2">
+						<div class="container">
+							<div class="row">
+								<div class="col-md-6">
+									<img src="../../images/bar.jpg" class="img-responsive" alt="Image">
+								</div>
+								<div class="col-md-6">
+									<span class="super-heading-sm">World Class</span>
+									<h3 class="heading">Bars</h3>
+									<p>A bar is a lively social spot where people gather to enjoy drinks, from cocktails and wine to craft beers. It offers a vibrant atmosphere for relaxing, socializing, or celebrating with friends, often featuring music, cozy seating, and skilled bartenders crafting personalized beverages.</p>
+									<p>A bar is more than just a place to drink—it's a hub of energy and conversation. Whether it's a casual evening with friends or a special night out, bars provide a comfortable setting to unwind. With diverse drink menus, lively music, and a welcoming ambiance, they cater to a variety of tastes and moods.</p>
+									<p class="service-hour">
+										<span>Service Hours</span>
+										<strong>7:30 AM - 8:00 PM</strong>
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="tab-content" data-tab-content="tab3">
+						<div class="container">
+							<div class="row">
+								<div class="col-md-6">
+									<img src="../../images/pickupfacility.jpg" class="img-responsive" alt="Image">
+								</div>
+								<div class="col-md-6">
+									<span class="super-heading-sm">World Class</span>
+									<h3 class="heading">Pick Up</h3>
+									<p>The pickup facility offers a convenient and hassle-free way to begin your journey. Whether you're heading to a hotel, restaurant, or local attraction, our reliable service ensures that you are picked up from your desired location on time. With well-maintained vehicles and professional drivers, we prioritize your comfort and safety throughout the trip</p>
+
+									<p>This service is especially beneficial for travelers unfamiliar with the area, as it takes the stress out of navigating public transportation or finding taxis. Whether it's a short trip across town or a transfer to the airport, the pickup facility guarantees a smooth and efficient experience tailored to your needs.</p>
+									<p class="service-hour">
+										<span>Service Hours</span>
+										<strong>7:30 AM - 8:00 PM</strong>
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="tab-content" data-tab-content="tab4">
+						<div class="container">
+							<div class="row">
+								<div class="col-md-6">
+									<img src="../../images/swmming.jpg" class="img-responsive" alt="Image">
+								</div>
+								<div class="col-md-6">
+									<span class="super-heading-sm">World Class</span>
+									<h3 class="heading">Swimming Pool</h3>
+									<p>The swimming pool offers a refreshing escape, perfect for relaxation and leisure. Surrounded by a serene atmosphere, it's an ideal spot to unwind after a busy day. Whether you want to take a few laps to stay fit or simply float and soak in the sun, the pool's pristine waters invite you to enjoy a rejuvenating experience. </p>
+									<p>For families and groups, the pool provides a fun and safe environment to splash around and create memories. With lifeguards on duty and well-maintained facilities, both children and adults can enjoy the water worry-free. </p>
+									<p class="service-hour">
+										<span>Service Hours</span>
+										<strong>7:30 AM - 8:00 PM</strong>
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="tab-content" data-tab-content="tab5">
+						<div class="container">
+							<div class="row">
+								<div class="col-md-6">
+									<img src="../../images/spa.jpeg" class="img-responsive" alt="Image">
+								</div>
+								<div class="col-md-6">
+									<span class="super-heading-sm">World Class</span>
+									<h3 class="heading">Spa</h3>
+									<p>The spa is a haven of tranquility, offering a wide range of treatments designed to rejuvenate your body and mind. From soothing massages to revitalizing facials, each service is tailored to provide deep relaxation and healing.  </p>
+
+									<p>Beyond the individual treatments, the spa offers a holistic wellness experience. You can immerse yourself in steam rooms, saunas, or hydrotherapy baths, all designed to detoxify and refresh. </p>
+									<p class="service-hour">
+										<span>Service Hours</span>
+										<strong>7:30 AM - 8:00 PM</strong>
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="tab-content" data-tab-content="tab6">
+						<div class="container">
+							<div class="row">
+								<div class="col-md-6">
+									<img src="../../images/gym.jpg" class="img-responsive" alt="Image">
+								</div>
+								<div class="col-md-6">
+									<span class="super-heading-sm">World Class</span>
+									<h3 class="heading">Gym</h3>
+									<p>The gym offers a state-of-the-art fitness experience, equipped with the latest machines and technology to suit every workout need. </p>
+									<p>In addition to the equipment, the gym also offers group fitness classes, from high-intensity interval training to yoga, catering to a variety of fitness levels and preferences. </p>
+									<p class="service-hour">
+										<span>Service Hours</span>
+										<strong>7:30 AM - 8:00 PM</strong>
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="testimonial">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="section-title text-center">
+						<h2>Happy Customer Says...</h2>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-4">
+					<div class="testimony">
+						<blockquote>
+							&ldquo;If you’re looking for a top quality hotel look no further. We were upgraded free of charge to the Premium Suite, thanks so much&rdquo;
+						</blockquote>
+						<p class="author"><cite>John Doe</cite></p>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="testimony">
+						<blockquote>
+							&ldquo;Me and my wife had a delightful weekend get away here, the staff were so friendly and attentive. Highly Recommended&rdquo;
+						</blockquote>
+						<p class="author"><cite>Rob Smith</cite></p>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="testimony">
+						<blockquote>
+							&ldquo;If you’re looking for a top quality hotel look no further. We were upgraded free of charge to the Premium Suite, thanks so much&rdquo;
+						</blockquote>
+						<p class="author"><cite>Jane Doe</cite></p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<div id="fh5co-blog-section">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="section-title text-center">
+						<h2>Our Blog</h2>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-4">
+					<div class="blog-grid" style="background-image: url(../../images/blog1.jpg);">
+						<div class="date text-center">
+							<span>09</span>
+							<small>Aug</small>
+						</div>
+					</div>
+					<div class="desc">
+						<h3><a href="www/blog1">Top 5 Unique Stays Around the World</a></h3>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="blog-grid" style="background-image: url(../../images/blogTWO.jpg);">
+						<div class="date text-center">
+							<span>09</span>
+							<small>Aug</small>
+						</div>
+					</div>
+					<div class="desc">
+						<h3><a href="www/blog2">How to Find the Perfect Vacation Rental</a></h3>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="blog-grid" style="background-image: url(../../images/blog3.jpg);">
+						<div class="date text-center">
+							<span>09</span>
+							<small>Aug</small>
+						</div>
+					</div>
+					<div class="desc">
+						<h3><a href="www/blog3">The Benefits,Booking Directly with Hosts</a></h3>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+<%- include("layout/footer.ejs")  %>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
